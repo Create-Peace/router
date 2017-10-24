@@ -12,6 +12,11 @@ function Router() {
 Router.prototype.route = function(path, callback) {
     this.routes[path] = callback || function(){};//给不同的hash设置不同的回调函数
 };
+// i.e.  window.location.replace('#/lossing')
+Router.prototype.replace = function (nowUrl) {
+    window.location.replace(nowUrl)
+    this.fromUrl = nowUrl
+}
 Router.prototype.trasition = function (elm) {
     
     var tmpUrl = elm.replace('/', '#')
